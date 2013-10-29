@@ -1,0 +1,844 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+    ],
+    "hash": "4fe8dffe8b7d806069b3f58e5fedd6f3",
+    "packages": [
+        {
+            "name": "arachne/security-annotations",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.m33.cz:arachne/security-annotations.git",
+                "reference": "3ef2b4edfbafb28d6d57e18d2b6b1ff8adad2d18"
+            },
+            "require": {
+                "arachne/verifier": "@dev",
+                "doctrine/annotations": "~1.1",
+                "kdyby/annotations": "@dev",
+                "kdyby/doctrine-cache": "@dev",
+                "nette/nette": "@dev",
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "arachne/codeception": "@dev",
+                "arachne/coding-style": "@dev",
+                "codeception/codeception": "~1.6",
+                "mockery/mockery": "~0.8",
+                "squizlabs/php_codesniffer": "~1.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Arachne\\SecurityAnnotations": "src/"
+                }
+            },
+            "license": [
+                "BSD-3-Clause",
+                "GPL-2.0",
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Jáchym Toušek",
+                    "homepage": "http://m33.cz/",
+                    "email": "enumag@gmail.com"
+                }
+            ],
+            "homepage": "http://enumag.cz",
+            "keywords": [
+                "arachne",
+                "nette",
+                "security"
+            ],
+            "time": "2013-10-19 14:04:47"
+        },
+        {
+            "name": "arachne/verifier",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.m33.cz:arachne/verifier.git",
+                "reference": "e0cfc525569a18884489b76b93ed33e396696b8c"
+            },
+            "require": {
+                "doctrine/annotations": "~1.1",
+                "kdyby/annotations": "@dev",
+                "kdyby/doctrine-cache": "@dev",
+                "nette/nette": "@dev",
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "arachne/codeception": "@dev",
+                "arachne/coding-style": "@dev",
+                "codeception/codeception": "~1.6",
+                "mockery/mockery": "~0.8",
+                "php": ">=5.4.0",
+                "squizlabs/php_codesniffer": "~1.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Arachne\\Verifier": "src/"
+                }
+            },
+            "license": [
+                "BSD-3-Clause",
+                "GPL-2.0",
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Jáchym Toušek",
+                    "homepage": "http://enumag.cz",
+                    "email": "enumag@gmail.com"
+                }
+            ],
+            "homepage": "http://enumag.cz",
+            "keywords": [
+                "arachne",
+                "nette",
+                "security"
+            ],
+            "time": "2013-10-19 13:58:56"
+        },
+        {
+            "name": "doctrine/annotations",
+            "version": "v1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/annotations.git",
+                "reference": "d2bb4eaf82f74fd6964503b4826d3963e134e400"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/annotations/zipball/d2bb4eaf82f74fd6964503b4826d3963e134e400",
+                "reference": "d2bb4eaf82f74fd6964503b4826d3963e134e400",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/lexer": "1.*",
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "doctrine/cache": "1.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Doctrine\\Common\\Annotations\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com",
+                    "homepage": "http://www.jwage.com/"
+                },
+                {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com",
+                    "homepage": "http://www.instaclick.com"
+                },
+                {
+                    "name": "Roman Borschel",
+                    "email": "roman@code-factory.org"
+                },
+                {
+                    "name": "Benjamin Eberlei",
+                    "email": "kontakt@beberlei.de"
+                },
+                {
+                    "name": "Johannes Schmitt",
+                    "email": "schmittjoh@gmail.com",
+                    "homepage": "http://jmsyst.com",
+                    "role": "Developer of wrapped JMSSerializerBundle"
+                }
+            ],
+            "description": "Docblock Annotations Parser",
+            "homepage": "http://www.doctrine-project.org",
+            "keywords": [
+                "annotations",
+                "docblock",
+                "parser"
+            ],
+            "time": "2013-03-17 14:03:10"
+        },
+        {
+            "name": "doctrine/cache",
+            "version": "v1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/cache.git",
+                "reference": "d0e4447707a064a5814b18cb0dcc2f24185f6179"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/cache/zipball/d0e4447707a064a5814b18cb0dcc2f24185f6179",
+                "reference": "d0e4447707a064a5814b18cb0dcc2f24185f6179",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "conflict": {
+                "doctrine/common": ">2.2,<2.4"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Doctrine\\Common\\Cache\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com",
+                    "homepage": "http://www.jwage.com/"
+                },
+                {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com",
+                    "homepage": "http://www.instaclick.com"
+                },
+                {
+                    "name": "Roman Borschel",
+                    "email": "roman@code-factory.org"
+                },
+                {
+                    "name": "Benjamin Eberlei",
+                    "email": "kontakt@beberlei.de"
+                },
+                {
+                    "name": "Johannes Schmitt",
+                    "email": "schmittjoh@gmail.com",
+                    "homepage": "http://jmsyst.com",
+                    "role": "Developer of wrapped JMSSerializerBundle"
+                }
+            ],
+            "description": "Caching library offering an object-oriented API for many cache backends",
+            "homepage": "http://www.doctrine-project.org",
+            "keywords": [
+                "cache",
+                "caching"
+            ],
+            "time": "2013-09-26 19:23:25"
+        },
+        {
+            "name": "doctrine/lexer",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/lexer.git",
+                "reference": "bc0e1f0cc285127a38c6c8ea88bc5dba2fd53e94"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/lexer/zipball/bc0e1f0cc285127a38c6c8ea88bc5dba2fd53e94",
+                "reference": "bc0e1f0cc285127a38c6c8ea88bc5dba2fd53e94",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Doctrine\\Common\\Lexer\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com",
+                    "homepage": "http://www.instaclick.com"
+                },
+                {
+                    "name": "Roman Borschel",
+                    "email": "roman@code-factory.org"
+                },
+                {
+                    "name": "Johannes Schmitt",
+                    "email": "schmittjoh@gmail.com",
+                    "homepage": "http://jmsyst.com",
+                    "role": "Developer of wrapped JMSSerializerBundle"
+                }
+            ],
+            "description": "Base library for a lexer that can be used in Top-Down, Recursive Descent Parsers.",
+            "homepage": "http://www.doctrine-project.org",
+            "keywords": [
+                "lexer",
+                "parser"
+            ],
+            "time": "2013-03-07 12:15:25"
+        },
+        {
+            "name": "kdyby/annotations",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Kdyby/Annotations.git",
+                "reference": "fcb98945454e6e09359506d370a1af14545ed4a2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Kdyby/Annotations/zipball/fcb98945454e6e09359506d370a1af14545ed4a2",
+                "reference": "fcb98945454e6e09359506d370a1af14545ed4a2",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/annotations": "~1.1",
+                "kdyby/doctrine-cache": "@dev",
+                "nette/nette": "@dev"
+            },
+            "conflict": {
+                "kdyby/doctrine": "0.9.*"
+            },
+            "require-dev": {
+                "nette/tester": "@dev"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Kdyby\\Annotations\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause",
+                "GPL-2.0",
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Filip Procházka",
+                    "homepage": "http://filip-prochazka.com"
+                },
+                {
+                    "name": "Jáchym Toušek",
+                    "email": "enumag@gmail.com",
+                    "homepage": "http://enumag.cz"
+                }
+            ],
+            "description": "Doctrine Annotations integration into Nette Framework",
+            "homepage": "http://kdyby.org",
+            "keywords": [
+                "annotations",
+                "doctrine",
+                "kdyby",
+                "nette"
+            ],
+            "time": "2013-09-26 19:15:32"
+        },
+        {
+            "name": "kdyby/bootstrap-form-renderer",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Kdyby/BootstrapFormRenderer.git",
+                "reference": "435593191509f0bca0a7e7f646dd66756bf4a77d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Kdyby/BootstrapFormRenderer/zipball/435593191509f0bca0a7e7f646dd66756bf4a77d",
+                "reference": "435593191509f0bca0a7e7f646dd66756bf4a77d",
+                "shasum": ""
+            },
+            "require": {
+                "nette/nette": "@dev"
+            },
+            "require-dev": {
+                "nette/tester": "@dev"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Kdyby\\BootstrapFormRenderer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause",
+                "GPL-2.0",
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Filip Procházka",
+                    "homepage": "http://filip-prochazka.com"
+                }
+            ],
+            "description": "Nette forms renderer with bootstrap",
+            "homepage": "http://kdyby.org",
+            "keywords": [
+                "Forms",
+                "bootstrap",
+                "kdyby",
+                "nette"
+            ],
+            "time": "2013-08-24 17:22:02"
+        },
+        {
+            "name": "kdyby/doctrine-cache",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Kdyby/DoctrineCache.git",
+                "reference": "90393a0a799ed6c7250dc1a1751addd792fc832b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Kdyby/DoctrineCache/zipball/90393a0a799ed6c7250dc1a1751addd792fc832b",
+                "reference": "90393a0a799ed6c7250dc1a1751addd792fc832b",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/cache": "~1.0",
+                "nette/nette": "@dev"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Kdyby\\DoctrineCache\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause",
+                "GPL-2.0",
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Filip Procházka",
+                    "homepage": "http://filip-prochazka.com"
+                }
+            ],
+            "description": "Doctrine Cache bridge for Nette Framework",
+            "homepage": "http://kdyby.org",
+            "keywords": [
+                "cache",
+                "doctrine",
+                "kdyby",
+                "nette"
+            ],
+            "time": "2013-08-12 13:21:11"
+        },
+        {
+            "name": "kdyby/html-validator-panel",
+            "version": "dev-master",
+            "target-dir": "Kdyby/Extension/Diagnostics/HtmlValidator",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Kdyby/HtmlValidatorPanel.git",
+                "reference": "cda2b2630a8cbd19459ed8600acd84defdeb976f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Kdyby/HtmlValidatorPanel/zipball/cda2b2630a8cbd19459ed8600acd84defdeb976f",
+                "reference": "cda2b2630a8cbd19459ed8600acd84defdeb976f",
+                "shasum": ""
+            },
+            "require": {
+                "nette/nette": "*"
+            },
+            "conflict": {
+                "kdyby/framework": "self.version"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Kdyby\\Extension\\Diagnostics\\HtmlValidator": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause",
+                "GPL-2.0",
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Filip Procházka",
+                    "homepage": "http://filip-prochazka.com"
+                }
+            ],
+            "description": "Nette DebugBar panel for validating the output HTML.",
+            "homepage": "http://kdyby.org",
+            "keywords": [
+                "html",
+                "kdyby",
+                "nette",
+                "validator"
+            ],
+            "time": "2013-06-23 19:16:02"
+        },
+        {
+            "name": "kdyby/nette-session-panel",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/HosipLan/Nette-Session-DebugBar.git",
+                "reference": "2a32dadaeb1adf0db52e19e27e30b0ebdf6c6f63"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/HosipLan/Nette-Session-DebugBar/zipball/2a32dadaeb1adf0db52e19e27e30b0ebdf6c6f63",
+                "reference": "2a32dadaeb1adf0db52e19e27e30b0ebdf6c6f63",
+                "shasum": ""
+            },
+            "require": {
+                "nette/nette": ">=2.0",
+                "php": ">=5.3.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Kdyby\\SessionPanel": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3",
+                "GPLv2",
+                "GPLv3"
+            ],
+            "authors": [
+                {
+                    "name": "Filip Procházka",
+                    "homepage": "http://filip-prochazka.com/"
+                },
+                {
+                    "name": "Pavel Železný",
+                    "homepage": "http://pavelzelezny.cz/"
+                },
+                {
+                    "name": "Jáchym Toušek",
+                    "email": "enumag@gmail.com",
+                    "homepage": "http://enumag.cz"
+                }
+            ],
+            "description": "Nette DebugBar panel, that allows you inspect your sessions.",
+            "homepage": "http://kdyby.org",
+            "keywords": [
+                "nette",
+                "panel",
+                "session"
+            ],
+            "time": "2013-09-13 15:11:29"
+        },
+        {
+            "name": "nasext/logger",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/NasExt/Logger.git",
+                "reference": "edef0277bf72d030f2ed2e63ada4022e2a591f5e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/NasExt/Logger/zipball/edef0277bf72d030f2ed2e63ada4022e2a591f5e",
+                "reference": "edef0277bf72d030f2ed2e63ada4022e2a591f5e",
+                "shasum": ""
+            },
+            "require": {
+                "nette/nette": "@dev",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "NasExt\\Logger\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dusan Hudak"
+                }
+            ],
+            "description": "Logger for Nette Framework",
+            "keywords": [
+                "logger",
+                "nasext",
+                "nette"
+            ],
+            "time": "2013-09-15 20:11:52"
+        },
+        {
+            "name": "nette/nette",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nette/nette.git",
+                "reference": "a27ed4df8dda6f8b7058485b46004cef48a99e3b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nette/nette/zipball/a27ed4df8dda6f8b7058485b46004cef48a99e3b",
+                "reference": "a27ed4df8dda6f8b7058485b46004cef48a99e3b",
+                "shasum": ""
+            },
+            "require": {
+                "ext-iconv": "*",
+                "ext-tokenizer": "*",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "nette/tester": "@dev"
+            },
+            "suggest": {
+                "ext-fileinfo": "*",
+                "ext-gd": "*",
+                "ext-mbstring": "*",
+                "ext-memcache": "*",
+                "ext-pdo": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.1-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "Nette/loader.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause",
+                "GPL-2.0",
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "David Grudl",
+                    "homepage": "http://davidgrudl.com"
+                },
+                {
+                    "name": "Nette Community",
+                    "homepage": "http://nette.org/contributors"
+                }
+            ],
+            "description": "Nette Framework - innovative framework for fast and easy development of secured web applications in PHP. Write less, have cleaner code and your work will bring you joy.",
+            "homepage": "http://nette.org",
+            "keywords": [
+                "Forms",
+                "database",
+                "dbal",
+                "debugging",
+                "framework",
+                "images",
+                "latte",
+                "mailing",
+                "micro",
+                "mvc",
+                "neon",
+                "templating"
+            ],
+            "time": "2013-10-21 23:36:35"
+        },
+        {
+            "name": "nextras/forms",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nextras/forms.git",
+                "reference": "de7d54e780e0037ffc7767cc35405fe21e399679"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nextras/forms/zipball/de7d54e780e0037ffc7767cc35405fe21e399679",
+                "reference": "de7d54e780e0037ffc7767cc35405fe21e399679",
+                "shasum": ""
+            },
+            "require": {
+                "nette/nette": "dev-master",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Nextras\\Forms": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause",
+                "GPL-2.0",
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "David Grudl",
+                    "homepage": "http://davidgrudl.com"
+                },
+                {
+                    "name": "Nextras Community",
+                    "homepage": "https://github.com/nextras/forms/graphs/contributors"
+                }
+            ],
+            "description": "Extra form components for Nette Framework.",
+            "keywords": [
+                "form",
+                "nette"
+            ],
+            "time": "2013-09-23 15:03:17"
+        },
+        {
+            "name": "stekycz/cronner",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stekycz/Cronner.git",
+                "reference": "005c30afb9999317c638fef35565d8173c534af0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stekycz/Cronner/zipball/005c30afb9999317c638fef35565d8173c534af0",
+                "reference": "005c30afb9999317c638fef35565d8173c534af0",
+                "shasum": ""
+            },
+            "require": {
+                "nette/nette": ">=2.0.0",
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "janmarek/mockista": "1.0.*",
+                "nette/tester": "0.9.*"
+            },
+            "suggest": {
+                "kdyby/events": "Events for Nette Framework"
+            },
+            "type": "nette-addon",
+            "autoload": {
+                "classmap": [
+                    "Cronner/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Martin Štekl",
+                    "email": "martin.stekl@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Simple tool which helps with maintenance of cron tasks.",
+            "keywords": [
+                "cron",
+                "manager",
+                "nette",
+                "task"
+            ],
+            "time": "2013-10-14 10:22:07"
+        }
+    ],
+    "packages-dev": [
+        {
+            "name": "nette/tester",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nette/tester.git",
+                "reference": "4f46271816885ed38e8d55b9d3d9fa37182cd312"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nette/tester/zipball/4f46271816885ed38e8d55b9d3d9fa37182cd312",
+                "reference": "4f46271816885ed38e8d55b9d3d9fa37182cd312",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "bin": [
+                "Tester/tester",
+                "Tester/coverage-report"
+            ],
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "Tester/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause",
+                "GPL-2.0",
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "David Grudl",
+                    "homepage": "http://davidgrudl.com"
+                },
+                {
+                    "name": "Nette Community",
+                    "homepage": "http://nette.org/contributors"
+                }
+            ],
+            "description": "An easy-to-use PHP Unit Testing framework.",
+            "homepage": "http://nette.org",
+            "keywords": [
+                "nette",
+                "testing",
+                "unit"
+            ],
+            "time": "2013-09-13 12:50:22"
+        }
+    ],
+    "aliases": [
+
+    ],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "nette/nette": 20,
+        "kdyby/bootstrap-form-renderer": 20,
+        "kdyby/annotations": 20,
+        "arachne/verifier": 20,
+        "arachne/security-annotations": 20,
+        "kdyby/html-validator-panel": 20,
+        "kdyby/nette-session-panel": 20,
+        "nasext/logger": 20,
+        "stekycz/cronner": 20,
+        "nextras/forms": 20,
+        "nette/tester": 20
+    },
+    "platform": {
+        "php": ">= 5.3.0"
+    },
+    "platform-dev": [
+
+    ]
+}

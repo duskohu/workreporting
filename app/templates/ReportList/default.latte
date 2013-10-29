@@ -1,0 +1,98 @@
+{block content}
+	<div class="tabbable">
+		<ul class="nav nav-tabs" id="reportList-tabs">
+			<li class="active"><a data-toggle="tab" href="#filter"><i class="icon-filter"></i> Filter</a></li>
+		</ul>
+		<div class="tab-content">
+			<div class="tab-pane fade active in" id="filter">
+				{control filter}
+			</div>
+		</div>
+	</div>
+
+	<div class="navbar system-navbar">
+		<div class="navbar-inner">
+			<ul class="nav pull-left">
+				<li n:snippet="vp">{control vp}</li>
+			</ul>
+
+			<div class="btn-group  pull-right">
+				<button class="btn dropdown-toggle" data-toggle="dropdown">Akcia
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu">
+					<li><a n:href="export">Export do CSV</a></li>
+				</ul>
+			</div>
+
+			<ul class="nav pull-right">
+				<li n:snippet="ipp">{control itemsPerPage}</li>
+				<li class="divider-vertical"></li>
+			</ul>
+		</div>
+	</div>
+
+	<table n:snippet="table-reportList" class="table table-condensed table-hover table-bordered table-horisontal">
+		<thead>
+		<tr>
+			<th width="60">{$presenter['order']->sortLink("reportDate", "Dátum")}</th>
+			<th>Issue</th>
+			<th width="60">Poznámka</th>
+			<th width="115">Čas do konca tasku</th>
+			<th width="130">Stravený čas na tasku</th>
+			<th width="105">Splnenie tasku [%]</th>
+			<th width="60">{$presenter['order']->sortLink("dateAdded", "Pridané")}</th>
+			<th width="60">{$presenter['order']->sortLink("dateModified", "Aktualizované")}</th>
+			<th>Používateľ</th>
+		</tr>
+		</thead>
+		<tbody>
+		{foreach $reportList as $report}
+			<tr n:class="$iterator->odd ? odd : even, $iterator->last ? last">
+				<td>
+					{if $report->user_id == $user->id}
+						<a n:href="edit $report->id" title="Editovať"">{$report->reportDate|date:'%d.%m.%Y'}</a>
+					{else}
+						{$report->reportDate|date:'%d.%m.%Y'}
+					{/if}
+				</td>
+				<td>{include #issueLink, idIssue => $report->idIssue}</td>
+				<td>
+					<span n:if="$report->description" class="add-on" rel="tooltip" title="{$report->description}"><i class="icon-globe"></i></span>
+				</td>
+				<td>{$report->timeRequired}</td>
+				<td>{$report->timeSpend}</td>
+				<td>{$report->taskCompleted}</td>
+				<td>{$report->dateAdded|date:'%d.%m.%Y'}</td>
+				<td>{$report->dateModified|date:'%d.%m.%Y'}</td>
+				<td>{$report->user->loginName}</td>
+			</tr>
+		{/foreach}
+		{if $reportListFoundCount == 0}
+			<tr>
+				<td colspan="9">Neboli nájdené žiadne záznamy</td>
+			</tr>
+		{/if}
+		</tbody>
+		<tfoot>
+		<tr>
+			<td colspan="9" class="record-info muted"><i class="icon-list-alt"></i>
+				<small>Nájdených: {$reportListFoundCount} z: {$reportListTotalCount} záznamov</small>
+			</td>
+		</tr>
+		</tfoot>
+	</table>
+{/block}
+
+{define #issueLink}
+	{? $idIssue = explode(',', $idIssue)}
+	{var $link = '';}
+	{foreach $idIssue as $id}
+		{? $link .= '<a href="'.$reportIssueUrl.'/'. $id.'" target="_blank">'.$id.'</a>'; }
+		{if !$iterator->last}
+			{? $link .= ', '}
+		{/if}
+	{/foreach}
+	{!$link}
+{/define}
+

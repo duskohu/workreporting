@@ -1,0 +1,24 @@
+<footer class="footer">
+	<div class="container">
+		<div class="row">
+			<div class="span6">
+				<div class="footer-left">
+					<ul class="icons-bar">
+						<li>
+							<a href="http://nette.org/" class="nette-powered" title="Nette Framewor">
+								<img alt="Nette Framework" src="{$basePath}/webResources/images/nette-powered1.gif" width="80" height="15"/>
+							</a>
+						</li>
+						<li>
+							PHP {=PHP_VERSION} |
+							{ifset $_SERVER['SERVER_SOFTWARE']}Server {$_SERVER['SERVER_SOFTWARE']}{/ifset} |
+							Nette Framework {=Nette\Framework::VERSION}
+						</li>
+					</ul>
+					Copyright &copy; {date("Y")} {$nasConfigStorage->applicationAuthorName}. Všetky práva vyhradené.
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+{control refreshLogin}

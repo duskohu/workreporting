@@ -1,0 +1,25 @@
+{if isset($ajaxRequest) && $ajaxRequest}
+	{? $form->getElementPrototype()->addClass('ajax')}
+{/if}
+
+{form $form}
+<div n:snippet="message-container" class="message-container">
+    {$form->render('errors')}
+</div>
+
+<div n:snippet="flashMessages" class="message-container flash-message">
+	<div n:foreach="$flashes as $flash" class="alert alert-{$flash->type}">
+		{$flash->message}
+	</div>
+</div>
+
+<table n:snippet="base-form">
+<tr n:foreach="$form->controls as $input" n:class="$input->required ? required">
+	<th>{if $input->controlPrototype->type !== checkbox}{label $input /}{/if}</th>
+	<td>
+		{input $input} {if $input->controlPrototype->type === checkbox}{label $input /}{/if}
+		<span class=error n:if="$input->error">{$input->error}</span>
+	</td>
+</tr>
+</table>
+{/form}

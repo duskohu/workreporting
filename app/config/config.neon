@@ -1,0 +1,106 @@
+#
+# SECURITY WARNING: it is CRITICAL that this file & directory are NOT accessible directly via a web browser!
+#
+# If you don't protect this directory from direct web access, anybody will be able to see your passwords.
+# http://nette.org/security-warning
+#
+parameters:
+	database:
+		driver: mysql
+		host: 'server'
+		dbname: 'db_name'
+		user: 'user'
+		password: 'passwd'
+
+	appInfo:
+		webmasterEmail: 'duskohu@gmail.com'
+		applicationEmail: 'admin@dusan-hudak.com'
+		applicationName: 'Work-reporting'
+		applicationDescription: 'Nas - Cms pre všetkých'
+		applicationAuthorName: 'Dušan Hudák'
+		applicationLanguage: 'sk'
+		applicationRobots: 'noindex,nofollow'
+		applicationKeywords: 'Nas, web, system, cms'
+		templatesDir: %appDir%/templates
+		reportIssueUrl: 'http://www.example.sk'
+
+	ignoreList: [email1@example.com, email2@example.com]
+
+php:
+	date.timezone: Europe/Prague
+
+nette:
+	application:
+		errorPresenter: Error
+		catchExceptions: TRUE
+		mapping:
+			*: Nas\*Module\*Presenter
+
+	session:
+		autoStart: smart
+		expiration: +14 days
+		savePath: %tempDir%/sessions
+
+	debugger:
+		email: %appInfo.webmasterEmail%
+		strictMode: TRUE
+		bar:
+			- Nette\DI\Diagnostics\ContainerPanel
+
+	database:
+		default:
+			dsn: '%database.driver%:host=%database.host%;dbname=%database.dbname%'
+			user: %database.user%
+			password: %database.password%
+			options:
+				lazy: yes
+
+services:
+	- Nas\UserManager
+	- Nas\UserRoleManager
+	- Nas\ReportManager
+	- Nas\NasConfigStorage(%appInfo%)
+	- App\RouterFactory
+	loggerManager: Nas\LoggerManager(%appDir%)
+	authenticator: Nas\Authenticator
+	router: @App\RouterFactory::createRouter
+	cronner: stekycz\Cronner\Cronner(stekycz\Cronner\TimestampStorage\FileStorage(%wwwDir%/temp/cronner))
+	task.reportCheckerTask:
+		class: \Nas\ReportCheckerTask()
+		setup:
+			- setIgnoreList(%ignoreList%)
+
+factories:
+	SignInFormControl:
+		create: Nas\SignInFormControl
+		implement: Nas\ISignInFormControl
+	UserRegisterFormControl:
+		create: Nas\UserRegisterFormControl
+		implement: Nas\IUserRegisterFormControl
+	ResetPasswordFormControl:
+		create: Nas\ResetPasswordFormControl
+		implement: Nas\IResetPasswordFormControl
+	ItemsPerPageFormControl:
+		create: Nas\ItemsPerPageFormControl
+		implement: Nas\IItemsPerPageFormControl
+	UserFormControl:
+		create: \Nas\UserFormControl
+		implement: \Nas\IUserFormControl
+	UserPasswordChangeFormControl:
+		create: \Nas\UserPasswordChangeFormControl(%userEntity%)
+		implement: \Nas\IUserPasswordChangeFormControl
+		parameters: [userEntity]
+	ReportFormControl:
+		create: \Nas\ReportFormControl
+		implement: \Nas\IReportFormControl
+
+extensions:
+	arachne.securityAnnotations: Arachne\SecurityAnnotations\DI\SecurityAnnotationsExtension
+	kdyby.annotations: Kdyby\Annotations\DI\AnnotationsExtension
+	arachne.verifier: Arachne\Verifier\DI\VerifierExtension
+	nasext.logger: NasExt\Logger\DI\LoggerExtension
+	debugger.session: Kdyby\SessionPanel\DI\SessionPanelExtension
+
+nasext.logger:
+	loggerRepository: @loggerManager
+	loggerDirectory: log/logger

@@ -1,0 +1,81 @@
+{block content}
+{* -- Zacatok table -- *}
+<table class="table table-condensed table-hover table-bordered">
+	<tbody>
+	<tr>
+		<th>Priorita</th>
+		<td>
+                <span class="label-{if $priorityList[$logEntity->priority]=='ERROR'}important{else}{$priorityList[$logEntity->priority]|lower}{/if} label">
+                    {$priorityList[$logEntity->priority]}
+                </span>
+		</td>
+	</tr>
+	<tr>
+		<th>Identifikátor</th>
+		<td>{$logEntity->identifer}</td>
+	</tr>
+	<tr>
+		<th>Dátum</th>
+		<td>{? echo date('d.m.Y-H:i', strtotime($logEntity->datetime))}</td>
+	</tr>
+	<tr>
+		<th>Správa</th>
+		<td>{$logEntity->message}</td>
+	</tr>
+	<tr>
+		<th>IP adresa</th>
+		<td>{$logEntity->ip}</td>
+	</tr>
+	<tr>
+		<th>Používateľ</th>
+		<td>
+			{ifset $logEntity->user_id}
+			{$logEntity->user_id} - {$logEntity->user->loginName }
+			{/ifset}
+		</td>
+	</tr>
+	<tr>
+		<th>Odkazovač</th>
+		<td>
+			<a href="{$logEntity->url}" target="_blank">{$logEntity->url}</a>
+		</td>
+	</tr>
+	<tr>
+		<th>Exception</th>
+		<td>
+			{if $logEntity->exception}
+				<pre>{$logEntity->exception}</pre>
+				{if $logEntity->exceptionFilename}
+					<i class="icon-file-alt"></i>
+					<a n:href="logRecord $logEntity->id" target="_blank">{$logEntity->exceptionFilename}</a>
+				{/if}
+			{/if}
+		</td>
+	</tr>
+	<tr>
+		<th>Argumenty</th>
+		<td>
+			{if $logEntity->args}
+				<pre>{$logEntity->args}</pre>
+			{/if}
+		</td>
+	</tr>
+	</tbody>
+	<tfoot>
+	<tr>
+		<td colspan="2">
+			<a
+					data-confirm="modal"
+					data-confirm-title="Potvrdiť"
+					data-confirm-text="Skutočne chcete vymazať záznam?"
+					data-confirm-ok-class="btn-danger"
+					data-confirm-ok-text="Vymazať"
+					data-confirm-cancel-class="btn-success"
+					data-confirm-cancel-text="Zrušiť"
+					class="btn btn-danger"
+					n:href="logDelete!">Vymazať log</a>
+		</td>
+	</tr>
+	</tfoot>
+</table>
+{* -- Koniec table -- *}

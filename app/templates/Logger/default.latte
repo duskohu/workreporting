@@ -1,0 +1,73 @@
+{block content}
+	<div class="tabbable">
+		<ul class="nav nav-tabs" id="logger-tabs">
+			<li class="active"><a data-toggle="tab" href="#filter"><i class="icon-filter"></i> Filter</a></li>
+			<li><a data-toggle="tab" href="#delete-log"><i class="icon-trash"></i> Vymazať log</a></li>
+		</ul>
+		<div class="tab-content">
+			<div class="tab-pane fade active in" id="filter">
+				{control filter}
+			</div>
+			<div class="tab-pane fade" id="delete-log">
+				{control deleteLogForm}
+			</div>
+		</div>
+	</div>
+
+	<div class="navbar system-navbar">
+		<div class="navbar-inner">
+			<ul class="nav pull-left">
+				<li n:snippet="vp">{control vp}</li>
+			</ul>
+
+			<ul class="nav pull-right">
+				<li class="divider-vertical"></li>
+				<li n:snippet="ipp">{control itemsPerPage}</li>
+			</ul>
+		</div>
+	</div>
+
+	<table n:snippet="table-log" class="table table-condensed table-hover table-bordered table-horisontal">
+		<thead>
+		<tr>
+			<th width="80">{$presenter['order']->sortLink("priority", "Priorita")}</th>
+			<th width="100">{$presenter['order']->sortLink("identifer", "Identifikátor")}</th>
+			<th width="120">{$presenter['order']->sortLink("datetime", "Dátum")}</th>
+			<th width="30">{$presenter['order']->sortLink("url", "Url")}</th>
+			<th>{$presenter['order']->sortLink("message", "Správa")}</th>
+		</tr>
+		</thead>
+		<tbody>
+		{foreach $logList as $log}
+			<tr n:class="$iterator->odd ? odd : even, $iterator->last ? last">
+				<td>
+		                <span class="label-{if $priorityList[$log->priority]=='ERROR'}important{else}{$priorityList[$log->priority]|lower}{/if} label">
+		                    {$priorityList[$log->priority]}
+		                </span>
+				</td>
+				<td>{$log->identifer}</td>
+				<td>{? echo date('d.m.Y-H:i', strtotime($log->datetime))}</td>
+				<td>
+					<a href="{$log->url}" target="_blank">
+						<span class="add-on" rel="tooltip" title="{$log->url}"><i class="icon-globe"></i></span>
+					</a>
+				</td>
+				<td><a n:href="show $log->id">{$log->message}</a></td>
+			</tr>
+		{/foreach}
+		{if $logListFoundCount == 0}
+			<tr>
+				<td colspan="5">Neboli nájdené žiadne záznamy</td>
+			</tr>
+		{/if}
+		</tbody>
+		<tfoot>
+		<tr>
+			<td colspan="5" class="record-info muted"><i class="icon-list-alt"></i>
+				<small>Nájdených: {$logListFoundCount} z: {$logListTotalCount} záznamov</small>
+			</td>
+		</tr>
+		</tfoot>
+	</table>
+{/block}
+

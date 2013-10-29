@@ -1,0 +1,11 @@
+{snippet itemsPerPage}
+	{? $form->getElementPrototype()->addClass('form-inline')}
+	{if $ajaxRequest}
+		{? $form->getElementPrototype()->addClass('ajax')}
+	{/if}
+	{form $form}
+		{? $form['itemsPerPage']->getControlPrototype()->addClass('span1')}
+		{pair itemsPerPage}
+		{ifset $form['change']}{input change}{/ifset}
+	{/form}
+{/snippet}

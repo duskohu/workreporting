@@ -1,0 +1,21 @@
+<meta charset="utf-8">
+<meta n:if="$nasConfigStorage->applicationDescription" name="description" content="{$nasConfigStorage->applicationDescription}"/>
+<meta n:if="$nasConfigStorage->applicationAuthorName" name="author" content="{$nasConfigStorage->applicationAuthorName}"/>
+<meta n:if="$nasConfigStorage->applicationKeywords" name="keywords" content="{$nasConfigStorage->applicationKeywords}">
+<meta n:if="$nasConfigStorage->applicationRobots" name="robots" content="{$nasConfigStorage->applicationRobots}">
+
+<title>{block #title}{ifset $pageTitle}{$pageTitle}{/ifset}{/block} | {$nasConfigStorage->applicationName}</title>
+<link rel="stylesheet" href="{$basePath}/webResources/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="{$basePath}/webResources/nextras.datetimepicker/datetimepicker.css">
+<link rel="stylesheet" href="{$basePath}/webResources/css/screen.css">
+<link rel="shortcut icon" href="{$basePath}/webResources/favicon.ico">
+
+<script src="{$basePath}/webResources/js/jquery.js"></script>
+<script src="{$basePath}/webResources/bootstrap/js/bootstrap.min.js"></script>
+<script src="{$basePath}/webResources/nette.ajax.js/nette.ajax.js"></script>
+<script src="{$basePath}/webResources/js/netteForms.js"></script>
+<script src="{$basePath}/webResources/nextras.datetimepicker/bootstrap-datetimepicker.js"></script>
+<script src="{$basePath}/webResources/nextras.datetimepicker/bootstrap-datetimepicker.sk.js"></script>
+<script src="{$basePath}/webResources/nextras.datetimepicker/nextras.datetimepicker.init.js"></script>
+<script src="{$basePath}/webResources/js/confirm.dialog.js"></script>
+<script src="{$basePath}/webResources/js/main.js"></script>

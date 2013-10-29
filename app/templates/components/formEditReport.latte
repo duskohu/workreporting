@@ -1,0 +1,48 @@
+{if isset($ajaxRequest) && $ajaxRequest}
+	{? $form->getElementPrototype()->addClass('ajax')}
+{/if}
+
+
+	{form $form}
+		<div n:snippet="message-container" class="message-container">
+	    {$form->render('errors')}
+		</div>
+
+		<div n:snippet="flashMessages" class="message-container flash-message">
+			<div n:foreach="$flashes as $flash" class="alert alert-{$flash->type}">
+				<button type="button" class="close" data-dismiss="alert">×</button>
+				{$flash->message}
+			</div>
+		</div>
+
+		{snippet dateGroup}
+			{$form->render($form['year'])}
+			{$form->render($form['month'])}
+			{$form->render($form['day'])}
+		{/snippet}
+
+		{snippet reportForm}
+		{$form->render($form['idIssue'])}
+		{$form->render($form['description'])}
+		{$form->render($form['timeRequired'])}
+		{$form->render($form['timeSpend'])}
+		{$form->render($form['taskCompleted'])}
+		{/snippet}
+
+		<div class="form-actions">
+			{? $form['save']->getControlPrototype()->addClass('btn-success')}
+			{$form->render($form['save'])}
+			<a
+			n:if="$reportEntity"
+			data-confirm="modal"
+			data-confirm-title="Potvrdiť"
+			data-confirm-text="Skutočne chcete vymazať report?"
+			data-confirm-ok-class="btn-danger"
+			data-confirm-ok-text="Vymazať"
+			data-confirm-cancel-class="btn-success"
+			data-confirm-cancel-text="Zrušiť"
+			class="btn btn-danger"
+			n:href="deleteReport!">Vymazať report</a>
+		</div>
+	{/form}
+

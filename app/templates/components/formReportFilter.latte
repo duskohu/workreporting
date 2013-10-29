@@ -1,0 +1,29 @@
+{if isset($ajaxRequest) && $ajaxRequest}
+	{? $form->getElementPrototype()->addClass('ajax')}
+{/if}
+
+{form $form}
+	<div n:snippet="message-container" class="message-container">
+			{$form->render('errors')}
+	</div>
+
+	<div n:snippet="flashMessages" class="message-container flash-message">
+		<div n:foreach="$flashes as $flash" class="alert alert-{$flash->type}">
+			{$flash->message}
+		</div>
+	</div>
+
+	<div n:snippet="filter-form">
+		<div class="container-fluid">
+			<div class="row-fluid">
+				<div class="span12">
+					{$form->render($form['date_from'])}
+					{$form->render($form['date_to'])}
+				</div>
+			</div>
+		</div>
+		{? $form['filter']->getControlPrototype()->addClass('btn-success')}
+		{? $form['reset']->getControlPrototype()->addClass('btn-danger')}
+		{$form->render('buttons')}
+	</div>
+{/form}

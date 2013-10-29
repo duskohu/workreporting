@@ -1,0 +1,36 @@
+{extends @outer.layout.latte}
+
+{#body}
+<script> document.body.className+=' js' </script>
+{includeblock "navbarTop.latte"}
+
+<div class="container">
+    <div class="wrapper">
+        <div class="row">
+            <div class="span12">
+				<div class="page-header">
+					<h1>{$nasConfigStorage->applicationName}</h1>
+				</div>
+            </div>
+        </div>
+
+        <div class="row">
+	        <div class="span12 content">
+                {snippet flashMessages}
+	                <div n:if=$flashes class="message-container flash-message">
+                    <div n:foreach="$flashes as $flash" class="alert alert-{$flash->type}">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+	                    {$flash->message}
+                    </div>
+                </div>
+                {/snippet}
+
+		        <h3>{$pageTitle}</h3>
+
+		        {include #content}
+            </div>
+        </div>
+
+	    {includeblock "footer.latte"}
+    </div>
+</div>

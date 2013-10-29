@@ -1,0 +1,42 @@
+{if isset($ajaxRequest) && $ajaxRequest}
+	{? $form->getElementPrototype()->addClass('ajax')}
+{/if}
+
+{form $form}
+	<div n:snippet="message-container" class="message-container">
+		{$form->render('errors')}
+	</div>
+
+	<div n:if=$flashes class="message-container flash-message">
+		<div n:foreach="$flashes as $flash" class="alert alert-{$flash->type}">
+			<button type="button" class="close" data-dismiss="alert">×</button>
+			{$flash->message}
+		</div>
+	</div>
+
+	<div n:snippet="register-form">
+		<div class="control-group">
+			{input loginName class => 'input-block-level'}
+			<p n:ifset="$form['loginName']->errors[0]" class="help-inline error">{$form['loginName']->errors[0]}</p>
+		</div>
+
+		<div class="control-group">
+			{input email class => 'input-block-level'}
+			<p n:ifset="$form['email']->errors[0]" class="help-inline error">{$form['email']->errors[0]}</p>
+		</div>
+
+		<div class="control-group">
+			{input password class => 'input-block-level'}
+			<p n:ifset="$form['password']->errors[0]" class="help-inline error">{$form['password']->errors[0]}</p>
+		</div>
+
+		<div class="control-group">
+			{input password2 class => 'input-block-level'}
+			<p n:ifset="$form['password2']->errors[0]" class="help-inline error">{$form['password2']->errors[0]}</p>
+		</div>
+
+		<div class="control-group">
+			{input add class => 'btn btn-success'}
+		</div>
+	</div>
+{/form}
